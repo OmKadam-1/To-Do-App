@@ -1,15 +1,14 @@
-const tasks = [];
+let tasks = [];   // use let so we can reassign
 
-    function LocalStorage() {
-      const Tasks = JSON.parse(localStorage.getItem("Tasks"));
+function LocalStorage() {
+    const Tasks = JSON.parse(localStorage.getItem("Tasks"));
 
-      if (Tasks) {
-        tasks.length = 0;        
-        tasks.push(...Tasks);    
-      }
-
-      loadTasks();
+    if (Tasks) {
+        tasks = Tasks;   
     }
+
+    loadTasks();
+}
     LocalStorage();
 function loadTasks() {
     localStorage.setItem("Tasks", JSON.stringify(tasks));
