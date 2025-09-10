@@ -1,16 +1,16 @@
 const tasks = [];
 
-function LocalStorage() {
-    const Tasks = JSON.parse(localStorage.getItem("Tasks"));
+    function LocalStorage() {
+      const Tasks = JSON.parse(localStorage.getItem("Tasks"));
 
-    if (Tasks) {
-        tasks.push(...Tasks);
+      if (Tasks) {
+        tasks.length = 0;        
+        tasks.push(...Tasks);    
+      }
+
+      loadTasks();
     }
-
-    loadTasks();
-}
-LocalStorage();
-
+    LocalStorage();
 function loadTasks() {
     localStorage.setItem("Tasks", JSON.stringify(tasks));
 
